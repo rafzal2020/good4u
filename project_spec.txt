@@ -1,0 +1,107 @@
+1. Project Overview
+
+Good4U is a lightweight, anonymous social media platform where users post positive moments from their lives. Other anonymous users can “cheer” (like) posts to encourage positivity. There are no profiles, no comments, and no follower graphs — the app is intentionally simple, uplifting, and low‑pressure.
+
+The core experience is:
+
+    Users open the app and immediately see a feed of positive posts.
+
+    Users can submit their own positive moment.
+
+    Users can cheer posts.
+
+    Everything is anonymous, tied only to a persistent device‑level anonymous ID.
+
+The app should feel:
+
+    Soft, warm, and encouraging.
+
+    Minimalistic and frictionless.
+
+    Fast and realtime.
+
+2. Tech Stack
+Frontend
+
+    Next.js  15+ (App Router)
+
+    React + TypeScript
+
+    TailwindCSS
+
+    Vercel for hosting
+
+    React Query or Supabase client-side queries
+
+    ShadCN UI (optional but recommended)
+
+Backend
+
+    Supabase
+
+        PostgreSQL database
+
+        Row Level Security (RLS)
+
+        Supabase Auth (anonymous)
+
+        Realtime channels for live feed updates
+
+        Edge Functions (optional for rate limiting or moderation)
+
+3. Core Features
+3.1 Anonymous Auth
+
+    Use Supabase’s built‑in anonymous sign‑in.
+
+    Each device gets a persistent user_id (UUID).
+
+    No usernames, no emails, no passwords.
+
+3.2 Post Creation
+
+    Users can submit a short text post (max 280 characters).
+
+    Optional: allow emoji.
+
+    No images in MVP.
+
+3.3 Feed
+
+    Infinite scroll feed of posts.
+
+    Sorted by created_at DESC.
+
+    Realtime updates: new posts appear without refresh.
+
+3.4 Cheers (Likes)
+
+    Users can cheer a post.
+
+    A user can cheer a post only once.
+
+    Cheer count updates in realtime.
+
+3.5 Anti‑Spam
+
+    Rate limit: max 3 posts per hour per user.
+
+    Max 1 cheer per post per user.
+
+    Optional: Supabase Edge Function to enforce rate limits.
+
+3.6 UI/UX Requirements
+
+    Soft pastel color palette.
+
+    Rounded corners.
+
+    Gentle animations.
+
+    “Good vibes only” aesthetic.
+
+4. Database Schema (Supabase)
+4.1 Table: users
+
+Anonymous users.
+sql
