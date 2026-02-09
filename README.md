@@ -4,14 +4,11 @@ A lightweight, anonymous social media platform where users post positive moments
 
 ## Features
 
-- ✨ **Anonymous Authentication** - No usernames, emails, or passwords required
-- 📝 **Post Creation** - Share positive moments (max 280 characters)
-- 📷 **Photo Upload** - Optional image per post (JPEG, PNG, GIF, WebP; max 5MB)
-- 👏 **Cheers System** - Like posts to spread positivity
-- 🔄 **Realtime Updates** - See new posts and cheer counts update instantly
-- 🌓 **Dark / Light Mode** - Theme toggle with system preference support
-- 🚫 **Anti-Spam** - One cheer per post per user (no post rate limit)
-- 🎨 **Beautiful UI** - Soft pastel colors, rounded corners, and gentle animations
+- Complete Anonymous!
+- Share positive moments and include photos of your news
+- "Cheer" other people's positive posts
+- Posts update in real time
+- Dark and Light Themes
 
 ## Tech Stack
 
@@ -45,7 +42,7 @@ npm install
 
 1. Go to your Supabase project dashboard
 2. Navigate to SQL Editor
-3. Run the SQL script from `database/schema.sql` to create all tables, indexes, and RLS policies
+3. Run the SQL script from `database/schema.sql` to create all tables, indexes, and RLS policies as well as all the scripts in `migrations\`
 
 ### 4. Enable Anonymous Auth
 
@@ -59,7 +56,7 @@ npm install
 2. Enable replication for the `posts` and `cheers` tables
 3. This allows the feed to update in realtime when new posts or cheers are added
 
-### 6. Add photo support (optional)
+### 6. Setting up Photo Support
 
 1. Run the migration `database/migrations/001_add_post_images.sql` in the SQL Editor (adds `image_url` to `posts` and allows image-only posts).
 2. In Supabase dashboard go to **Storage** and create a new bucket:
@@ -109,15 +106,6 @@ All tables have Row Level Security (RLS) enabled with appropriate policies.
 
 - Maximum 1 cheer per post per user (enforced by database)
 - Maximum 1 cheer per post per user (enforced by unique constraint)
-
-## Deployment
-
-The app is ready to be deployed on Vercel:
-
-1. Push your code to GitHub
-2. Import the project in Vercel
-3. Add your environment variables in Vercel dashboard
-4. Deploy!
 
 ## License
 
